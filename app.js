@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const date = require(__dirname + '/date.js');
+const connexion = require('./database/db')
 
 const app = express();
 
@@ -39,7 +40,7 @@ app.get('/about', function (req, res) {
 	res.render('about');
 });
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, function () {
 	console.log(`Server started on port ${PORT}`);
 });
